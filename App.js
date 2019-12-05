@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { MapView, Permissions, Location } from "expo";
-import {DestinationButton} from './Components/DestinationButton'
+import { DestinationButton } from "./Components/DestinationButton";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      region: null,
+      region: null
     };
-    this._getLocationAsync()  
-      
+    this._getLocationAsync();
   }
   //access devices location via the GPS
   _getLocationAsync = async () => {
@@ -26,14 +25,13 @@ export default class App extends Component {
       latitudeDelta: 0.045,
       longitudeDelta: 0.045
     };
-    this.setState({region:region});
+    this.setState({ region: region });
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hello</Text>
-        <DestinationButton/>
+        <DestinationButton />
         <MapView
           initialRegion={this.state.region}
           showsUserLocation={true}

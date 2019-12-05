@@ -17,9 +17,13 @@ export const DestinationButton = function(props) {
         <Text style={{ fontSize: 8 }}>{"\u25A0"}</Text>
       </View>
       <View style={styles.centerCol}>
-      <Text style={{ fontFamily:'cursive',fontSize:21,color:'#545454' }}>{"\u25A0"}</Text></View>
+        <Text style={{ fontFamily: "cursive", fontSize: 21, color: "#545454" }}>
+          Where to?
+        </Text>
+      </View>
       <View style={styles.rightCol}>
-      <Text style={{ fontSize: 8 }}>{"\u25A0"}</Text></View>
+        <Ionicons name='md-car' color="#0000000" size={25} style={{alignSelf:'center'}}/>
+      </View>
     </TouchableOpacity>
   );
 };
