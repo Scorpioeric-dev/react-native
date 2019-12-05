@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { MapView, Permissions, Location } from "expo";
+import {DestinationButton} from './Components/DestinationButton'
 
 export default class App extends Component {
   constructor(props) {
@@ -32,6 +33,7 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <Text>Hello</Text>
+        <DestinationButton/>
         <MapView
           initialRegion={this.state.region}
           showsUserLocation={true}
