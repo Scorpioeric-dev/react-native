@@ -6,7 +6,7 @@ const WIDTH = Dimensions.get("window").width;
 const HEIGHT = Dimensions.get("window").height;
 
 export const CurrentLocationButton = function(props) {
-    const cb = props.cb ? props.cb : console.log('Callback function not passed to CurrentLocationButton!')
+    const cb = props.cb ? props.cb : () => console.log('Callback function not passed to CurrentLocationButton!')
   //if props.buttom is passed , use it .If not ,set bottom to 65
   const bottom = props.bottom ? props.buttom : 65;
   return (

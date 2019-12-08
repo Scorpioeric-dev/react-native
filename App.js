@@ -28,17 +28,33 @@ export default class App extends Component {
     };
     this.setState({ region: region });
   };
+  centerMap() {
+    const {
+      latitude,
+      latitudeDelta,
+      longitude,
+      longitudeDelta
+    } = this.state.region;
+
+    this.map.animateToRegion({
+      latitude,
+      longitude,
+      latitudeDelta,
+      longitudeDelta
+    });
+  }
 
   render() {
     return (
       <View style={styles.container}>
         <DestinationButton />
-        <CurrentLocationButton />
+        <CurrentLocationButton cb={() => {this.centerMap()}}/>
         <MapView
           initialRegion={this.state.region}
           showsUserLocation={true}
           showsCompass={true}
           rotateEnabled={false}
+          ref={(map) => {this.map = map}}
           style={{ flex: 1 }}
         />
       </View>
