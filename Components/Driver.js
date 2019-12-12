@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Image, View } from "react-native";
-import { Mapview } from "expo";
+import { MapView } from "expo";
 
 export default class Driver extends Component {
   constructor(props) {
@@ -8,7 +8,7 @@ export default class Driver extends Component {
     const driver = this.props.driver
       ? this.props.driver
       : { uid: "noDriversPassed", location: { latitude: 0, longitude: 0 } };
-    const coordinate = new Mapview.AnimatedRegion({
+    const coordinate = new MapView.AnimatedRegion({
       latitude: driver.location.latitude,
       logitude: driver.location.longitude
     });
@@ -17,4 +17,23 @@ export default class Driver extends Component {
       coordinate: coordinate
     };
   }
+
+render(){
+    return(
+        <MapView.Marker.Animated
+        coordinate={this.state.coordinate}
+        anchor={{x:0.35,y:0.32}}
+        ref={marker => {this.marker = marker}}
+        style={{width:50, height:50}}>
+        <Image 
+        source={require('../assets/images/car.png')}
+        style={{
+            width:32,
+            height:32
+        }} />
+        
+        </MapView.Marker.Animated>
+    )
+}
+
 }
